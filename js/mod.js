@@ -5,7 +5,7 @@ let modInfo = {
 	pointsName: "bees",
 	discordName: "",
 	discordLink: "",
-	initialStartPoints: new ExpantaNum (10), // Used for hard resets and new players
+	initialStartPoints: EN (10), // Used for hard resets and new players
 	
 	offlineLimit: 1,  // In hours
 }
@@ -28,7 +28,7 @@ let winText = `Congratulations! You have reached the end and beaten this game, b
 var doNotCallTheseFunctionsEveryTick = ["blowUpEverything"]
 
 function getStartPoints(){
-    return new ExpantaNum(modInfo.initialStartPoints)
+    return EN(modInfo.initialStartPoints)
 }
 
 // Determines if it should show points/sec
@@ -39,9 +39,9 @@ function canGenPoints(){
 // Calculate points/sec!
 function getPointGen() {
 	if(!canGenPoints())
-		return new ExpantaNum(0)
+		return EN(0)
 
-	let gain = new ExpantaNum(1)
+	let gain = EN(1)
 	if (hasUpgrade('f', 11)) gain = gain.times(2)
 	return gain
 }
